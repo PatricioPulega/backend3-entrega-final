@@ -1,0 +1,25 @@
+# Dependencias locales
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Logs
+*.log
+logs/
+
+# Cobertura de tests
+coverage/
+*.lcov
+
+# Builds locales
+dist/
+build/
+
+# Configuración de IDE
+.vscode/
+.idea/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db

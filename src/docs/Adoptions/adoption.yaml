@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: AdoptMe API - Adoptions
+  version: 1.0.0
+
+tags:
+  - name: Adoptions
+    description: Endpoints para adopciones
+
+paths:
+  /adoptions:
+    get:
+      summary: Listar todas las adopciones
+      tags: [Adoptions]
+      responses:
+        "200":
+          description: Lista de adopciones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Adoption'
+
+  /adoptions/{uid}/{pid}:
+    post:
+      summary: Crear adopción (usuario adopta mascota)
+      tags: [Adoptions]
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema: { type: string }
+        - in: path
+          name: pid
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { description: Mascota adoptada }
+
+components:
+  schemas:
+    Adoption:
+      type: object
+      properties:
+        _id: { type: string, description: ID generado por MongoDB }
+        user: { $ref: '#/components/schemas/User', description: Usuario que adopta }
+        pet: { $ref: '#/components/schemas/Pet', description: Mascota adoptada }
+        adoptionDate: { type: string, format: date, description: Fecha de adopción }
+      example:
+        _id: "851f1a2b3c4d5e6f7g8h9i0l"
+        user:
+          _id: "641f1a2b3c4d5e6f7g8h9i0j"
+          first_name: "Juan"
+          last_name: "Pérez"
+          email: "juan.perez@example.com"
+        pet:
+          _id: "741f1a2b3c4d5e6f7g8h9i0k"
+          name: "Firulais"
+          specie: "Perro"
+          birthDate: "2020-05-10"
+        adoptionDate: "2023-08-15"

@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: AdoptMe API - Pets
+  version: 1.0.0
+
+tags:
+  - name: Pets
+    description: Endpoints para gestión de mascotas
+
+paths:
+  /pets:
+    get:
+      summary: Listar todas las mascotas
+      tags: [Pets]
+      responses:
+        "200":
+          description: Lista de mascotas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+
+    post:
+      summary: Crear una nueva mascota
+      tags: [Pets]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Pet' }
+      responses:
+        "200": { description: Mascota creada }
+
+  /pets/{pid}:
+    put:
+      summary: Actualizar mascota por ID
+      tags: [Pets]
+      parameters:
+        - in: path
+          name: pid
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Pet' }
+      responses:
+        "200": { description: Mascota actualizada }
+
+    delete:
+      summary: Eliminar mascota por ID
+      tags: [Pets]
+      parameters:
+        - in: path
+          name: pid
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { description: Mascota eliminada }
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        _id: { type: string, description: ID generado por MongoDB }
+        name: { type: string, description: Nombre de la mascota }
+        specie: { type: string, description: Especie }
+        birthDate: { type: string, format: date, description: Fecha de nacimiento }
+        image: { type: string, description: Imagen de la mascota }
+      example:
+        _id: "741f1a2b3c4d5e6f7g8h9i0k"
+        name: "Firulais"
+        specie: "Perro"
+        birthDate: "2020-05-10"
+        image: "firulais.png"
