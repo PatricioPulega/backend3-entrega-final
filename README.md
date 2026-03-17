@@ -2,9 +2,7 @@
 
 ## 📌 Descripción
 Este proyecto corresponde a la entrega final de Backend III.  
-Se trata de una API para gestión de usuarios, mascotas y adopciones, 
-documentada con **Swagger** y desplegada en **Docker** 
-con conexión a **MongoDB Atlas**.
+Se trata de una API para gestión de usuarios, mascotas y adopciones, documentada con **Swagger** y desplegada en **Docker** con conexión a **MongoDB Atlas**.
 
 ---
 
@@ -64,7 +62,7 @@ Los archivos YAML se encuentran en src/docs/ y describen los endpoints de:
 
 📌 Imagen en Docker Hub
 La imagen está publicada en Docker Hub:
-👉 https://hub.docker.com/r/patriciopulega/adoptme-api
+👉 patriciopulega/adoptme-api
 Cómo correrla en cualquier PC
 docker pull patriciopulega/adoptme-api:1.0
 docker run -p 8080:8080 patriciopulega/adoptme-api:1.0
