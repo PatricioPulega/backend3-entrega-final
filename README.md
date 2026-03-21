@@ -2,8 +2,8 @@
 
 ## 📌 Descripción
 Este proyecto corresponde a la entrega final de Backend III.  
-Se trata de una API para gestión de usuarios, mascotas y adopciones, 
-documentada con **Swagger** y desplegada en **Docker** 
+Se trata de una API para gestión de usuarios, mascotas y adopciones,  
+documentada con **Swagger** y desplegada en **Docker**  
 con conexión a **MongoDB Atlas**.
 
 ---
@@ -25,18 +25,22 @@ con conexión a **MongoDB Atlas**.
 - `tests/` → Carpeta con pruebas automatizadas
 - `.env` → Variables de entorno (no se debe versionar)
 
-🐳 Levantar el proyecto con Docker
+---
+
+## 🐳 Levantar el proyecto con Docker
+
 1. Construir y levantar el contenedor
+```bash
 docker compose up --build
 
-
-2. Ver logs de ejecución
+
+- Ver logs de ejecución
 Deberías ver:
 Listening on 8080
 MongoDB conectado
 
 
-3. Acceder a la API
+- Acceder a la API
 - Swagger UI → http://localhost:8080/api/docs
 - Endpoint de mascotas → http://localhost:8080/api/pets
 
